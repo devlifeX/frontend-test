@@ -7,11 +7,10 @@ import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
 import DashboardPage from "./pages/dashboard";
 import ProtectedRoute from "./routes/protectedRoute";
-import Navigation from "./components/navigation/navigation";
 import { GlobalStyles } from "./components/styles/globalStyles";
 
 function App() {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
   console.log("====================================");
   console.log("user", user);
   console.log("====================================");
@@ -20,7 +19,6 @@ function App() {
     <Fragment>
       <Router>
         <GlobalStyles />
-        <Navigation user={user} logout={logout} />
 
         <Routes>
           {/* Public routes */}

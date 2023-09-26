@@ -4,6 +4,7 @@ import Button from "../components/button/button";
 import Form from "../components/form/form";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
+import Layout from "../components/layout/layout";
 
 interface FormData {
   phoneNumber: string;
@@ -33,23 +34,26 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <Form handleSubmit={handleSubmit}>
-      <Input
-        type="text"
-        value={formData.phoneNumber}
-        name="phoneNumber"
-        placeholder="Phone Number"
-        onChange={handleChange}
-      />
-      <Input
-        type="text"
-        value={formData.email}
-        name="email"
-        placeholder="Email"
-        onChange={handleChange}
-      />
-      <Button label="Submit" onClick={() => {}}></Button>
-    </Form>
+    <Layout>
+      <h1>Login Page</h1>
+      <Form handleSubmit={handleSubmit}>
+        <Input
+          type="text"
+          value={formData.phoneNumber}
+          name="phoneNumber"
+          placeholder="Phone Number"
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          value={formData.email}
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+        />
+        <Button label="Submit" onClick={() => {}}></Button>
+      </Form>
+    </Layout>
   );
 };
 

@@ -4,6 +4,7 @@ import Button from "../components/button/button";
 import Form from "../components/form/form";
 import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
+import Layout from "../components/layout/layout";
 
 interface FormData {
   email: string;
@@ -34,30 +35,33 @@ const RegisterPage: React.FC = () => {
   };
 
   return (
-    <Form handleSubmit={handleSubmit}>
-      <Input
-        type="text"
-        value={formData.email}
-        name="email"
-        placeholder="Email"
-        onChange={handleChange}
-      />
-      <Input
-        type="text"
-        value={formData.phoneNumber}
-        name="phoneNumber"
-        placeholder="Phone number"
-        onChange={handleChange}
-      />
-      <Input
-        type="text"
-        value={formData.password}
-        name="password"
-        placeholder="Password"
-        onChange={handleChange}
-      />
-      <Button label="Submit" onClick={() => register(formData)}></Button>
-    </Form>
+    <Layout>
+      <h1>Register Page</h1>
+      <Form handleSubmit={handleSubmit}>
+        <Input
+          type="text"
+          value={formData.email}
+          name="email"
+          placeholder="Email"
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          value={formData.phoneNumber}
+          name="phoneNumber"
+          placeholder="Phone number"
+          onChange={handleChange}
+        />
+        <Input
+          type="text"
+          value={formData.password}
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+        />
+        <Button label="Submit" onClick={() => register(formData)}></Button>
+      </Form>
+    </Layout>
   );
 };
 
