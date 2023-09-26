@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import Layout from "../components/layout/layout";
 import routes from "./routes";
+import { useTheme } from "../context/theme/themeContext";
 
 interface FormData {
   phoneNumber: string;
@@ -33,7 +34,7 @@ const LoginPage: React.FC = () => {
     login(formData);
     navigate(routes.DASHBOARD);
   };
-
+const { theme } = useTheme();
   return (
     <Layout>
       <h1>Login Page</h1>
@@ -52,7 +53,7 @@ const LoginPage: React.FC = () => {
           placeholder="Email"
           onChange={handleChange}
         />
-        <Button label="Submit" onClick={() => {}}></Button>
+        <Button label="Submit" onClick={() => {}} theme={theme}></Button>
       </Form>
     </Layout>
   );

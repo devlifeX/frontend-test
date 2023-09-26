@@ -1,32 +1,23 @@
 import React from "react";
-import { css } from "@emotion/css";
-
-const buttonStyles = css`
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-
-  &:hover {
-    background-color: #0056b3;
-  }
-`;
+import useStyles from "../../utility/createUseStyles";
 
 interface ButtonProps {
   label: string;
   onClick: () => void;
   disabled?: boolean;
+  theme?: object;
 }
 
 const Button: React.FC<ButtonProps> = ({
   label,
   onClick,
   disabled = false,
+  theme,
 }) => {
+  const classes = useStyles({ theme });
+
   return (
-    <button onClick={onClick} disabled={disabled} className={buttonStyles}>
+    <button onClick={onClick} disabled={disabled} className={classes.button}>
       {label}
     </button>
   );

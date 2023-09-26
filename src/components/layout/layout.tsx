@@ -1,8 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { css } from "@emotion/css"; // Import css from Emotion
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import routes from "../../pages/routes";
+import { useTheme } from "../../context/theme/themeContext";
+import Button from "../button/button";
 
 const headerMenuStyles = css`
   background-color: white;
@@ -39,8 +41,16 @@ const linkStyles = css`
   }
 `;
 
+const themeButtonsWrapperStyles = css`
+  text-decoration: none;
+  color: inherit;
+  button {
+    margin: 10px;
+  }
+`;
 const HeaderMenu: React.FC = () => {
   const { user } = useAuth();
+  const { onChangeTheme } = useTheme();
 
   const menuItems = [
     { text: "login", to: routes.LOGIN },
@@ -50,18 +60,38 @@ const HeaderMenu: React.FC = () => {
   ];
 
   return (
-    <nav className={headerMenuStyles}>
-      {menuItems.map((item) => (
-        <NavLink className={linkStyles} to={item.to}>
-          {item.text}{" "}
-        </NavLink>
-      ))}
-      {user?.email && (
-        <NavLink className={linkStyles} to={"/logout"}>
-          logout
-        </NavLink>
-      )}
-    </nav>
+    <Fragment>
+      <nav className={headerMenuStyles}>
+        {menuItems.map((item) => (
+          <NavLink className={linkStyles} to={item.to}>
+            {item.text}{" "}
+          </NavLink>
+        ))}
+        {user?.email && (
+          <NavLink className={linkStyles} to={"/logout"}>
+            logout
+          </NavLink>
+        )}
+      </nav>
+      <div className={themeButtonsWrapperStyles}>
+        <Button
+          label="firstTheme"
+          onClick={() => onChangeTheme("firstTheme")}
+        />
+        <Button
+          label="secondTheme"
+          onClick={() => onChangeTheme("secondTheme")}
+        />
+        <Button
+          label="thirdTheme"
+          onClick={() => onChangeTheme("thirdTheme")}
+        />
+        <Button
+          label="fourthTheme"
+          onClick={() => onChangeTheme("fourthTheme")}
+        />
+      </div>
+    </Fragment>
   );
 };
 
