@@ -7,7 +7,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactElement }) => {
   const location = useLocation();
   const { user } = useAuth();
 
-  if (!user.username) {
+  if (!user.email) {
     return <Navigate to="/login" replace state={{ from: location }} />;
   }
 

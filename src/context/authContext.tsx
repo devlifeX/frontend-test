@@ -1,15 +1,23 @@
 import React, { createContext, useContext, useState } from "react";
 
 type ContextType = {
-  user: { username: string };
+  user: UserData;
   login: Function;
   logout: Function;
+  register: Function;
+};
+
+type UserData = {
+  email?: string;
+  phoneNumber?: string;
+  password?: string;
 };
 
 const AuthContext = createContext<ContextType>({
-  user: { username: "" },
+  user: { email: "", phoneNumber: "", password: "" },
   login: () => {},
   logout: () => {},
+  register: () => {},
 });
 
 export const AuthProvider = ({
@@ -17,18 +25,26 @@ export const AuthProvider = ({
 }: {
   children: React.ReactElement;
 }) => {
-  const [user, setUser] = useState({ username: "" });
+  const [user, setUser] = useState<UserData>({
+    email: "",
+    phoneNumber: "",
+    password: "",
+  });
 
-  const login = (userData: { username: string }) => {
+  const login = (userData: UserData) => {
+    setUser(userData);
+  };
+
+  const register = (userData: UserData) => {
     setUser(userData);
   };
 
   const logout = () => {
-    setUser({ username: "" });
+    setUser({ email: "" });
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, register }}>
       {children}
     </AuthContext.Provider>
   );

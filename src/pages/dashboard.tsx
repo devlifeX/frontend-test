@@ -6,7 +6,7 @@ const DashboardPage: React.FC = () => {
   return (
     <div>
       <h1>Hello world!</h1>
-      <p>you logged in as {user.username}</p>
+      <p>you logged in as {user.email}</p>
     </div>
   );
 };
