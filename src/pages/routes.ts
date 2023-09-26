@@ -1,4 +1,4 @@
-const routePrefix = process.env.ROUTE_PREFIX
+const routePrefix = process.env.ROUTE_PREFIX || ""
 
 const routes = {
     LOGIN : `${routePrefix}/login`,
