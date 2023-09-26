@@ -10,6 +10,13 @@ const useStyles = createUseStyles((theme: any) => ({
     borderRadius: "var(--border-radius)",
     cursor: "pointer",
   },
+  input:{
+    marginBottom: "10px",
+    padding: "8px",
+    border: "1px solid",
+    borderColor: theme.primaryColor,
+    borderRadius: "var(--border-radius)",
+  }
 }));
 
 export default useStyles

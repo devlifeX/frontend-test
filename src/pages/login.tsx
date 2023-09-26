@@ -34,7 +34,7 @@ const LoginPage: React.FC = () => {
     login(formData);
     navigate(routes.DASHBOARD);
   };
-const { theme } = useTheme();
+  const { theme } = useTheme();
   return (
     <Layout>
       <h1>Login Page</h1>
@@ -45,6 +45,7 @@ const { theme } = useTheme();
           name="phoneNumber"
           placeholder="Phone Number"
           onChange={handleChange}
+          theme={theme}
         />
         <Input
           type="text"
@@ -52,6 +53,7 @@ const { theme } = useTheme();
           name="email"
           placeholder="Email"
           onChange={handleChange}
+          theme={theme}
         />
         <Button label="Submit" onClick={() => {}} theme={theme}></Button>
       </Form>

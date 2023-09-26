@@ -1,5 +1,6 @@
 import React, { ChangeEvent } from "react";
 import { css } from "@emotion/css";
+import useStyles from "../../utility/createUseStyles";
 
 const inputStyles = css`
   margin-bottom: 10px;
@@ -19,6 +20,7 @@ interface InputProps {
   name?: string;
   placeholder?: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  theme?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -27,13 +29,15 @@ const Input: React.FC<InputProps> = ({
   name,
   placeholder,
   onChange,
+  theme,
 }) => {
+  const classes = useStyles({ theme });
   return (
     <input
       type={type}
       name={name}
       placeholder={placeholder}
-      className={inputStyles}
+      className={classes.input}
       value={value}
       onChange={onChange}
     />
