@@ -2,6 +2,7 @@ import React from "react";
 import { css } from "@emotion/css"; // Import css from Emotion
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
+import routes from "../../pages/routes";
 
 const headerMenuStyles = css`
   background-color: white;
@@ -42,10 +43,10 @@ const HeaderMenu: React.FC = () => {
   const { user } = useAuth();
 
   const menuItems = [
-    { text: "login", to: "/login" },
-    { text: "register", to: "/register" },
-    { text: "dashboard", to: "/dashboard" },
-    { text: "about-us", to: "/" },
+    { text: "login", to: routes.LOGIN },
+    { text: "register", to: routes.REGISTER },
+    { text: "dashboard", to: routes.DASHBOARD },
+    { text: "about-us", to: routes.ABOUTUS },
   ];
 
   return (
