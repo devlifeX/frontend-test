@@ -36,7 +36,7 @@ export const AuthProvider = ({
   };
 
   const register = (userData: UserData) => {
-    setUser(userData);
+    // setUser(userData);
   };
 
   const logout = () => {

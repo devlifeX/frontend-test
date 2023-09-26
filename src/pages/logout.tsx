@@ -2,6 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/layout/layout";
+import routes from "./routes";
 
 const LogoutPage: React.FC = () => {
   const { logout } = useAuth();
@@ -9,7 +10,7 @@ const LogoutPage: React.FC = () => {
 
   useEffect(() => {
     logout();
-    navigate("/login");
+    navigate(routes.LOGIN);
   }, []);
 
   return (

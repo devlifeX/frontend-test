@@ -5,6 +5,7 @@ import Form from "../components/form/form";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import Layout from "../components/layout/layout";
+import routes from "./routes";
 
 interface FormData {
   phoneNumber: string;
@@ -30,7 +31,7 @@ const LoginPage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     login(formData);
-    navigate("/dashboard");
+    navigate(routes.DASHBOARD);
   };
 
   return (

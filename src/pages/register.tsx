@@ -5,6 +5,7 @@ import Form from "../components/form/form";
 import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/layout/layout";
+import routes from "./routes";
 
 interface FormData {
   email: string;
@@ -31,7 +32,7 @@ const RegisterPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    navigate("/login");
+    navigate(routes.LOGIN);
   };
 
   return (

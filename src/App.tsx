@@ -6,9 +6,10 @@ import AboutUsPage from "./pages/about-us";
 import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
 import DashboardPage from "./pages/dashboard";
-import ProtectedRoute from "./routes/protectedRoute";
+import ProtectedRoute from "./utility/protectedRoute";
 import { GlobalStyles } from "./components/styles/globalStyles";
 import LogoutPage from "./pages/logout";
+import routes from "./pages/routes";
 
 function App() {
   const { user } = useAuth();
@@ -24,13 +25,13 @@ function App() {
         <Routes>
           {/* Public routes */}
           <Route index element={<AboutUsPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/logout" element={<LogoutPage />} />
+          <Route path={routes.LOGIN} element={<LoginPage />} />
+          <Route path={routes.REGISTER} element={<RegisterPage />} />
+          <Route path={routes.LOGOUT} element={<LogoutPage />} />
 
           {/* Protected route */}
           <Route
-            path="/dashboard"
+            path={routes.DASHBOARD}
             element={
               <ProtectedRoute>
                 <DashboardPage />
