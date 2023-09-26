@@ -6,6 +6,7 @@ import { useAuth } from "../context/authContext";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/layout/layout";
 import routes from "./routes";
+import { useTheme } from "../context/theme/themeContext";
 
 interface FormData {
   email: string;
@@ -16,6 +17,7 @@ interface FormData {
 const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
   const { register } = useAuth();
+  const { theme } = useTheme();
   const [formData, setFormData] = useState<FormData>({
     email: "",
     phoneNumber: "",
@@ -45,6 +47,7 @@ const RegisterPage: React.FC = () => {
           name="email"
           placeholder="Email"
           onChange={handleChange}
+          theme={theme}
         />
         <Input
           type="text"
@@ -52,6 +55,7 @@ const RegisterPage: React.FC = () => {
           name="phoneNumber"
           placeholder="Phone number"
           onChange={handleChange}
+          theme={theme}
         />
         <Input
           type="text"
@@ -59,8 +63,13 @@ const RegisterPage: React.FC = () => {
           name="password"
           placeholder="Password"
           onChange={handleChange}
+          theme={theme}
         />
-        <Button label="Submit" onClick={() => register(formData)}></Button>
+        <Button
+          label="Submit"
+          onClick={() => register(formData)}
+          theme={theme}
+        />
       </Form>
     </Layout>
   );
