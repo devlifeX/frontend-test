@@ -8,6 +8,7 @@ import RegisterPage from "./pages/register";
 import DashboardPage from "./pages/dashboard";
 import ProtectedRoute from "./routes/protectedRoute";
 import { GlobalStyles } from "./components/styles/globalStyles";
+import LogoutPage from "./pages/logout";
 
 function App() {
   const { user } = useAuth();
@@ -25,6 +26,7 @@ function App() {
           <Route index element={<AboutUsPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/logout" element={<LogoutPage />} />
 
           {/* Protected route */}
           <Route

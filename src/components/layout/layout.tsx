@@ -1,15 +1,14 @@
 import React from "react";
 import { css } from "@emotion/css"; // Import css from Emotion
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../../context/authContext";
 
-// Define styles for the header menu
 const headerMenuStyles = css`
   background-color: white;
   color: black;
   padding: 20px;
 `;
 
-// Define styles for the footer
 const footerStyles = css`
   background-color: white;
   color: black;
@@ -17,7 +16,6 @@ const footerStyles = css`
   padding: 10px;
 `;
 
-// Define styles for the layout
 const layoutStyles = css`
   font-family: Arial, sans-serif;
   max-width: 800px;
@@ -25,9 +23,24 @@ const layoutStyles = css`
   padding: 20px;
   background-color: #f0f0f0;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+  main {
+    padding: 20px;
+  }
+`;
+
+const linkStyles = css`
+  text-decoration: none;
+  color: inherit;
+  padding: 10px;
+  &:hover {
+    color: blue;
+  }
 `;
 
 const HeaderMenu: React.FC = () => {
+  const { user } = useAuth();
+
   const menuItems = [
     { text: "login", to: "/login" },
     { text: "register", to: "/register" },
@@ -37,10 +50,16 @@ const HeaderMenu: React.FC = () => {
 
   return (
     <nav className={headerMenuStyles}>
-      {menuItems.map((item, index) => (
-        <NavLink to={item.to}>{item.text} </NavLink>
+      {menuItems.map((item) => (
+        <NavLink className={linkStyles} to={item.to}>
+          {item.text}{" "}
+        </NavLink>
       ))}
-      {/* {user?.username && <button onClick={() => logout()}>logout</button>} */}
+      {user?.email && (
+        <NavLink className={linkStyles} to={"/logout"}>
+          logout
+        </NavLink>
+      )}
     </nav>
   );
 };
