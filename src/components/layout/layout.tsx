@@ -5,6 +5,7 @@ import { useAuth } from "../../context/authContext";
 import routes from "../../pages/routes";
 import { useTheme } from "../../context/theme/themeContext";
 import Button from "../button/button";
+import { useTranslation } from "react-i18next";
 
 const headerMenuStyles = css`
   background-color: white;
@@ -51,12 +52,13 @@ const themeButtonsWrapperStyles = css`
 const HeaderMenu: React.FC = () => {
   const { user } = useAuth();
   const { onChangeTheme } = useTheme();
+  const { i18n, t } = useTranslation();
 
   const menuItems = [
-    { text: "login", to: routes.LOGIN },
-    { text: "register", to: routes.REGISTER },
-    { text: "dashboard", to: routes.DASHBOARD },
-    { text: "about-us", to: routes.ABOUTUS },
+    { text: t("login"), to: routes.LOGIN },
+    { text: t("register"), to: routes.REGISTER },
+    { text: t("dashboard"), to: routes.DASHBOARD },
+    { text: t("about us"), to: routes.ABOUTUS },
   ];
 
   return (
@@ -69,36 +71,43 @@ const HeaderMenu: React.FC = () => {
         ))}
         {user?.email && (
           <NavLink className={linkStyles} to={"/logout"}>
-            logout
+            {t("logout")}
           </NavLink>
         )}
       </nav>
       <div className={themeButtonsWrapperStyles}>
         <Button
-          label="firstTheme"
+          label={t("firstTheme")}
           onClick={() => onChangeTheme("firstTheme")}
         />
         <Button
-          label="secondTheme"
+          label={t("secondTheme")}
           onClick={() => onChangeTheme("secondTheme")}
         />
         <Button
-          label="thirdTheme"
+          label={t("thirdTheme")}
           onClick={() => onChangeTheme("thirdTheme")}
         />
         <Button
-          label="fourthTheme"
+          label={t("fourthTheme")}
           onClick={() => onChangeTheme("fourthTheme")}
         />
+      </div>
+
+      <div className={themeButtonsWrapperStyles}>
+        <Button label="fa" onClick={() => i18n.changeLanguage("fa")} />
+        <Button label="fr" onClick={() => i18n.changeLanguage("fr")} />
+        <Button label="en" onClick={() => i18n.changeLanguage("en")} />
       </div>
     </Fragment>
   );
 };
 
 const Footer: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <footer className={footerStyles}>
-      <p>This is the footer sentence.</p>
+      <p>{t("footer text")}.</p>
     </footer>
   );
 };

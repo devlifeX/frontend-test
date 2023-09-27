@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Layout from "../components/layout/layout";
 import routes from "./routes";
 import { useTheme } from "../context/theme/themeContext";
+import { useTranslation } from "react-i18next";
 
 interface FormData {
   email: string;
@@ -16,6 +17,7 @@ interface FormData {
 
 const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const { register } = useAuth();
   const { theme } = useTheme();
   const [formData, setFormData] = useState<FormData>({
@@ -39,13 +41,13 @@ const RegisterPage: React.FC = () => {
 
   return (
     <Layout>
-      <h1>Register Page</h1>
+      <h1>{t("Register Page")}</h1>
       <Form handleSubmit={handleSubmit}>
         <Input
           type="text"
           value={formData.email}
           name="email"
-          placeholder="Email"
+          placeholder={t("Email")}
           onChange={handleChange}
           theme={theme}
         />
@@ -53,7 +55,7 @@ const RegisterPage: React.FC = () => {
           type="text"
           value={formData.phoneNumber}
           name="phoneNumber"
-          placeholder="Phone number"
+          placeholder={t("Phone Number")}
           onChange={handleChange}
           theme={theme}
         />
@@ -61,12 +63,12 @@ const RegisterPage: React.FC = () => {
           type="text"
           value={formData.password}
           name="password"
-          placeholder="Password"
+          placeholder={t("Password")}
           onChange={handleChange}
           theme={theme}
         />
         <Button
-          label="Submit"
+          label={t("Submit")}
           onClick={() => register(formData)}
           theme={theme}
         />

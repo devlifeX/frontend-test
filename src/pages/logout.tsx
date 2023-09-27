@@ -11,7 +11,7 @@ const LogoutPage: React.FC = () => {
   useEffect(() => {
     logout();
     navigate(routes.LOGIN);
-  }, []);
+  }, [logout, navigate]);
 
   return (
     <Layout>

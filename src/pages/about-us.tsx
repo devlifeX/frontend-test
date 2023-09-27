@@ -1,16 +1,14 @@
 import React from "react";
 import Layout from "../components/layout/layout";
+import { useTranslation } from "react-i18next";
 
 const AboutUsPage: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <Layout>
-      <h1>About Us</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis
-        lorem ut libero malesuada feugiat. Nulla facilisi. Sed euismod erat nec
-        vestibulum euismod. Morbi accumsan est vitae suscipit. Fusce tristique
-        dignissim lorem, a rutrum libero efficitur id.
-      </p>
+      <h1>{t("about us")}</h1>
+      <h2>{t("Welcome to React")}</h2>
+      <p>{t("about us text")}</p>
     </Layout>
   );
 };

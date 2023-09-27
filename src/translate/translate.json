@@ -1,0 +1,74 @@
+{
+    "en": {
+        "translation": {
+            "Welcome to React": "Welcome to React and react-i18next",
+            "about us": "about us",
+            "about us text": "We are a forward-thinking tech company, innovating solutions for a digital world",
+            "Hello world": "Hello world",
+            "Login Page": "Login Page",
+            "Phone Number": "Phone Number",
+            "Email": "Email",
+            "Submit": "Submit",
+            "Password": "Password",
+            "Register Page": "Register Page",
+            "login": "login",
+            "register": "register",
+            "dashboard": "dashboard",
+            "logout": "logout",
+            "you logged in as": "you logged in as",
+            "firstTheme": "first Theme",
+            "secondTheme": "second Theme",
+            "thirdTheme": "third Theme",
+            "fourthTheme": "fourth Theme",
+            "footer text": "This is the footer sentence"
+        }
+    },
+    "fr": {
+        "translation": {
+            "Welcome to React": "Bienvenue à React et react-i18next",
+            "about us": "à propos de nous",
+            "about us text": "Nous sommes une entreprise technologique avant-gardiste, des solutions innovantes pour un monde numérique",
+            "Hello world": "Bonjour le monde",
+            "Login Page": "Page de connexion",
+            "Phone Number": "Numéro de téléphone",
+            "Email": "E-mail",
+            "Submit": "Soumettre",
+            "Password": "Mot de passe",
+            "Register Page": "Page d'inscription",
+            "login": "se connecter",
+            "register": "registre",
+            "dashboard": "tableau de bord",
+            "logout": "Se déconnecter",
+            "you logged in as": "vous êtes connecté en tant que",
+            "firstTheme": "premier thème",
+            "secondTheme": "deuxième thème",
+            "thirdTheme": "troisième thème",
+            "fourthTheme": "quatrième thème",
+            "footer text": "C'est la phrase du pied de page"
+        }
+    },
+    "fa": {
+        "translation": {
+            "Welcome to React": "به ری اکت خوش آمدید",
+            "about us": "درباره ما",
+            "about us text": "ما یک شرکت فناوری آینده‌نگر هستیم که راه‌حل‌هایی را برای دنیای دیجیتال نوآوری می‌کنیم",
+            "Hello world": "سلام دنیا",
+            "Login Page": "صفحه ورود",
+            "Phone Number": "شماره تلفن",
+            "Email": "ایمیل",
+            "Submit": "ارسال",
+            "Password": "رمز عبور",
+            "Register Page": "صفحه ثبت نام",
+            "login": "ورود",
+            "register": "ثبت نام",
+            "dashboard": "دشبورد",
+            "logout": "خروج",
+            "you logged in as": "شما با این نام کاربری وارد شدید",
+            "firstTheme": "تم اول",
+            "secondTheme": "تم دوم",
+            "thirdTheme": "تم سوم",
+            "fourthTheme": "تم چهارم",
+            "footer text": "این متن پاورقی است"
+        }
+    }
+}

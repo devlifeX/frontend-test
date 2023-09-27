@@ -1,18 +1,17 @@
 import React, { ChangeEvent } from "react";
-import { css } from "@emotion/css";
 import useStyles from "../../utility/createUseStyles";
 
-const inputStyles = css`
-  margin-bottom: 10px;
-  padding: 8px;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  &:focus {
-    outline: none;
-    border-color: var(--focus-input-color);
-    box-shadow: var(--box-shadow);
-  }
-`;
+// const inputStyles = css`
+//   margin-bottom: 10px;
+//   padding: 8px;
+//   border: 1px solid var(--border-color);
+//   border-radius: var(--border-radius);
+//   &:focus {
+//     outline: none;
+//     border-color: var(--focus-input-color);
+//     box-shadow: var(--box-shadow);
+//   }
+// `;
 
 interface InputProps {
   type: string;

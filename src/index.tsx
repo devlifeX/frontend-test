@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { AuthProvider } from "./context/authContext";
 import { ThemeProvider } from "./context/theme/themeContext";
+import "./translate/i18n";
 
 const root = createRoot(document.getElementById("root") as HTMLElement);
 root.render(
