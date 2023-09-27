@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
 
-const useStyles = createUseStyles((theme: any) => ({
+const useStyles:any = createUseStyles((theme: any) => ({
   button: {
     backgroundColor: theme.primaryColor,
     color: theme.thirdinaryColor,
