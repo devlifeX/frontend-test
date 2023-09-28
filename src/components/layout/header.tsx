@@ -47,7 +47,7 @@ const HeaderMenu: React.FC<HeaderProps> = ({ theme }) => {
             </NavLink>
           ))}
           {user?.email && (
-            <NavLink className={linkStyles} to={"/logout"}>
+            <NavLink className={linkStyles} to={routes.LOGOUT}>
               {t("logout")}
             </NavLink>
           )}

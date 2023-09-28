@@ -1,6 +1,4 @@
 import React, { Fragment } from "react";
-import "./App.css";
-import { useAuth } from "./context/authContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AboutUsPage from "./pages/about-us";
 import LoginPage from "./pages/login";
@@ -12,11 +10,6 @@ import LogoutPage from "./pages/logout";
 import routes from "./pages/routes";
 
 function App() {
-  const { user } = useAuth();
-  console.log("====================================");
-  console.log("user", user);
-  console.log("====================================");
-
   return (
     <Fragment>
       <Router>
