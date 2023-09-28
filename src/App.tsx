@@ -7,7 +7,7 @@ import LoginPage from "./pages/login";
 import RegisterPage from "./pages/register";
 import DashboardPage from "./pages/dashboard";
 import ProtectedRoute from "./utility/protectedRoute";
-import { GlobalStyles } from "./components/styles/globalStyles";
+import { GlobalStyles } from "./styles/globalStyles";
 import LogoutPage from "./pages/logout";
 import routes from "./pages/routes";
 
