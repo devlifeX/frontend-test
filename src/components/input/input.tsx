@@ -1,17 +1,16 @@
 import React, { ChangeEvent } from "react";
 import useStyles from "../../utility/createUseStyles";
+import { css } from "@emotion/css";
 
-// const inputStyles = css`
-//   margin-bottom: 10px;
-//   padding: 8px;
-//   border: 1px solid var(--border-color);
-//   border-radius: var(--border-radius);
-//   &:focus {
-//     outline: none;
-//     border-color: var(--focus-input-color);
-//     box-shadow: var(--box-shadow);
-//   }
-// `;
+const inputStyles = css`
+  input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid;
+    border-radius: var(--border-radius);
+    width: 100%;
+  }
+`;
 
 interface InputProps {
   type: string;
@@ -32,14 +31,16 @@ const Input: React.FC<InputProps> = ({
 }) => {
   const classes = useStyles({ theme });
   return (
-    <input
-      type={type}
-      name={name}
-      placeholder={placeholder}
-      className={classes.input}
-      value={value}
-      onChange={onChange}
-    />
+    <div className={inputStyles}>
+      <input
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        className={classes.input}
+        value={value}
+        onChange={onChange}
+      />
+    </div>
   );
 };
 

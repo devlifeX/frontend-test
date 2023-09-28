@@ -43,6 +43,9 @@ const linkStyles = css`
 `;
 
 const themeButtonsWrapperStyles = css`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   text-decoration: none;
   color: inherit;
   button {

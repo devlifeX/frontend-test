@@ -8,11 +8,18 @@ import Layout from "../components/layout/layout";
 import routes from "./routes";
 import { useTheme } from "../context/theme/themeContext";
 import { useTranslation } from "react-i18next";
+import { css } from "@emotion/css";
 
 interface FormData {
   phoneNumber: string;
   email: string;
 }
+
+const formStyles = css`
+  button {
+    width: 100%;
+  }
+`;
 
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -40,27 +47,29 @@ const LoginPage: React.FC = () => {
   return (
     <Layout>
       <h1>{t("Login Page")}</h1>
-      <Form handleSubmit={handleSubmit}>
-        <Input
-          type="text"
-          value={formData.phoneNumber}
-          name="phoneNumber"
-          placeholder={t("Phone Number")}
-          onChange={handleChange}
-          theme={theme}
-        />
+      <div className={formStyles}>
+        <Form handleSubmit={handleSubmit}>
+          <Input
+            type="text"
+            value={formData.phoneNumber}
+            name="phoneNumber"
+            placeholder={t("Phone Number")}
+            onChange={handleChange}
+            theme={theme}
+          />
 
-        <Input
-          type="text"
-          value={formData.email}
-          name="email"
-          placeholder={t("Email")}
-          onChange={handleChange}
-          theme={theme}
-        />
+          <Input
+            type="text"
+            value={formData.email}
+            name="email"
+            placeholder={t("Email")}
+            onChange={handleChange}
+            theme={theme}
+          />
 
-        <Button label={t("Submit")} onClick={() => {}} theme={theme}></Button>
-      </Form>
+          <Button label={t("Submit")} onClick={() => {}} theme={theme}></Button>
+        </Form>
+      </div>
     </Layout>
   );
 };

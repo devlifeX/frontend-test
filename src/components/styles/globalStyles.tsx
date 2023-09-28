@@ -14,6 +14,12 @@ export const GlobalStyles = () => {
       --box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
     }
 
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
     html {
       direction: ${isRTL ? "rtl" : "ltr"};
     }

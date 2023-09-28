@@ -1,5 +1,6 @@
 import React from "react";
 import useStyles from "../../utility/createUseStyles";
+import { css } from "@emotion/css";
 
 interface ButtonProps {
   label: string;
@@ -7,6 +8,15 @@ interface ButtonProps {
   disabled?: boolean;
   theme?: object;
 }
+
+const inputStyles = css`
+  button {
+    padding: 10px 20px;
+    border: 1px solid;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+  }
+`;
 
 const Button: React.FC<ButtonProps> = ({
   label,
@@ -17,9 +27,11 @@ const Button: React.FC<ButtonProps> = ({
   const classes = useStyles({ theme });
 
   return (
-    <button onClick={onClick} disabled={disabled} className={classes.button}>
-      {label}
-    </button>
+    <div className={inputStyles}>
+      <button onClick={onClick} disabled={disabled} className={classes.button}>
+        {label}
+      </button>
+    </div>
   );
 };
 
