@@ -9,6 +9,14 @@ const useStyles:any = createUseStyles((theme: any) => ({
   },
   input:{
     borderColor: theme.primaryColor,
+  },
+  footer: {
+    backgroundColor:theme.primaryColor,
+    color: theme.thirdinaryColor,
+  },
+  header: {
+    backgroundColor:theme.primaryColor,
+    color: theme.thirdinaryColor,
   }
 }));
 

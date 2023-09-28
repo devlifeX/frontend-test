@@ -6,10 +6,9 @@ import routes from "../../pages/routes";
 import { css } from "@emotion/css";
 import ChangeThemeButtons from "../changeThemeButtons/changeThemeButtons";
 import ChangeLanguageButtons from "../changeLanguageButtons/changeLanguageButtons";
+import useStyles from "../../utility/createUseStyles";
 
 const headerMenuStyles = css`
-  background-color: white;
-  color: black;
   padding: 20px;
 `;
 
@@ -22,9 +21,14 @@ const linkStyles = css`
   }
 `;
 
-const HeaderMenu: React.FC = () => {
+interface HeaderProps {
+  theme?: object;
+}
+
+const HeaderMenu: React.FC<HeaderProps> = ({ theme }) => {
   const { user } = useAuth();
   const { t } = useTranslation();
+  const classes = useStyles({ theme });
 
   const menuItems = [
     { text: t("login"), to: routes.LOGIN },
@@ -35,18 +39,20 @@ const HeaderMenu: React.FC = () => {
 
   return (
     <Fragment>
-      <nav className={headerMenuStyles}>
-        {menuItems.map((item) => (
-          <NavLink className={linkStyles} to={item.to}>
-            {item.text}{" "}
-          </NavLink>
-        ))}
-        {user?.email && (
-          <NavLink className={linkStyles} to={"/logout"}>
-            {t("logout")}
-          </NavLink>
-        )}
-      </nav>
+      <div className={classes.header}>
+        <nav className={headerMenuStyles}>
+          {menuItems.map((item) => (
+            <NavLink className={linkStyles} to={item.to}>
+              {item.text}{" "}
+            </NavLink>
+          ))}
+          {user?.email && (
+            <NavLink className={linkStyles} to={"/logout"}>
+              {t("logout")}
+            </NavLink>
+          )}
+        </nav>
+      </div>
 
       <ChangeThemeButtons />
 

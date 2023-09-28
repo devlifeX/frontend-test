@@ -1,19 +1,26 @@
 import { css } from "@emotion/css";
 import { useTranslation } from "react-i18next";
+import useStyles from "../../utility/createUseStyles";
 
 const footerStyles = css`
-  background-color: white;
-  color: black;
   text-align: center;
   padding: 10px;
 `;
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  theme?: object;
+}
+
+const Footer: React.FC<FooterProps> = ({ theme }) => {
   const { t } = useTranslation();
+  const classes = useStyles({ theme });
+
   return (
-    <footer className={footerStyles}>
-      <p>{t("footer text")}.</p>
-    </footer>
+    <div className={classes.footer}>
+      <footer className={footerStyles}>
+        <p>{t("footer text")}.</p>
+      </footer>
+    </div>
   );
 };
 

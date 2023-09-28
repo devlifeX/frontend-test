@@ -2,6 +2,7 @@ import React from "react";
 import { css } from "@emotion/css"; // Import css from Emotion
 import HeaderMenu from "./header";
 import Footer from "./footer";
+import { useTheme } from "../../context/theme/themeContext";
 
 const layoutStyles = css`
   font-family: Arial, sans-serif;
@@ -22,13 +23,15 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const { theme } = useTheme();
+
   return (
     <div className={layoutStyles}>
       <header>
-        <HeaderMenu />
+        <HeaderMenu theme={theme} />
       </header>
       <main>{children}</main>
-      <Footer />
+      <Footer theme={theme} />
     </div>
   );
 };

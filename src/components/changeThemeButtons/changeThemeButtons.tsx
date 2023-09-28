@@ -2,6 +2,12 @@ import Button from "../button/button";
 import { useTheme } from "../../context/theme/themeContext";
 import { useTranslation } from "react-i18next";
 import { css } from "@emotion/css";
+import {
+  firstTheme,
+  fourthTheme,
+  secondTheme,
+  thirdTheme,
+} from "../../context/theme/themes";
 
 const themeButtonsWrapperStyles = css`
   display: flex;
@@ -23,18 +29,22 @@ const ChangeThemeButtons: React.FC = () => {
       <Button
         label={t("firstTheme")}
         onClick={() => onChangeTheme("firstTheme")}
+        theme={firstTheme}
       />
       <Button
         label={t("secondTheme")}
         onClick={() => onChangeTheme("secondTheme")}
+        theme={secondTheme}
       />
       <Button
         label={t("thirdTheme")}
         onClick={() => onChangeTheme("thirdTheme")}
+        theme={thirdTheme}
       />
       <Button
         label={t("fourthTheme")}
         onClick={() => onChangeTheme("fourthTheme")}
+        theme={fourthTheme}
       />
     </div>
   );
